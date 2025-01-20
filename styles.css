@@ -1,0 +1,460 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 0 20px; /* Adding space from the edge */
+}
+
+/* Header Styles */
+header {
+    background-color: #2A2A2A;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #FF7043; /* Orange accent line for separation */
+    display: flex;
+    justify-content: flex-end; /* Align the nav bar to the right */
+    padding-right: 3rem; /* Added right padding to space out the nav */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #FF7043; /* Light Orange color for the title */
+    margin-right: auto; /* Align the title to the left */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: uppercase; /* Added text transform for a bolder, more structured look */
+}
+
+header nav a:hover {
+    color: #FF7043; /* Hover effect with the same orange color */
+}
+
+/* Main Content Layout - Flex */
+.flex {
+    display: flex;
+    margin-top: 6rem; /* Space to push content below the header */
+    gap: 2rem; /* Space between the filter and grid */
+}
+
+.w-1/4 {
+    width: 25%;
+}
+
+.w-3/4 {
+    width: 75%;
+}
+
+.bg-gray-800 {
+    background-color: #212121; /* Darker gray background for sidebar */
+}
+
+.text-white {
+    color: #FFFFFF;
+}
+
+.text-red-600 {
+    color: #FF7043;
+}
+
+.max-w-7xl {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding to prevent content from touching edges */
+}
+
+/* Sidebar Styles */
+#genre-list {
+    margin-top: 2rem;
+}
+
+.genre-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #333333;
+    border: 2px solid #FF7043; /* Orange border for better contrast */
+    border-radius: 8px;
+    text-align: left;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.genre-btn:hover {
+    background-color: #FF7043; /* Highlight color on hover */
+    transform: scale(1.05); /* Small zoom effect on hover */
+}
+
+.genre-btn:focus {
+    outline: none;
+}
+
+/* Movie Grid Layout */
+#movie-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding-right: 20px; /* Add padding to the right side of the grid */
+}
+
+@media screen and (min-width: 640px) {
+    #movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #movie-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #movie-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Movie Cards */
+.movie-card {
+    background-color: #333333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FF7043; /* Orange border for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); /* Zoom-in effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.movie-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.movie-card-info {
+    padding: 1.5rem;
+    background-color: #424242; /* Slightly lighter gray background for card info */
+    border-top: 2px solid #FF7043;
+}
+
+.movie-card-info h3 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.movie-card-info p {
+    font-size: 1rem;
+    color: #DDDDDD;
+    margin-bottom: 1.5rem;
+}
+
+.movie-card-info .rating {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FF7043; /* Rating in orange for visibility */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2A2A2A;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+    border-top: 2px solid #FF7043;
+}
+
+footer p {
+    color: #DDDDDD;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Modal Styles (Hidden initially) */
+#movie-detail-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#movie-detail-modal .bg-gray-800 {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #FF7043;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#movie-detail-modal h2 {
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+#movie-detail-modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#movie-detail-modal p {
+    font-size: 1rem;
+    color: #DDDDDD;
+    margin: 1rem 0;
+}
+
+#movie-detail-modal .flex {
+    display: flex;
+    justify-content: space-between;
+    color: #DDDDDD;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 640px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #movie-detail-modal .bg-gray-800 {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #movie-detail-modal .bg-gray-800 {
+        width: 95%;
+    }
+}
+
+/* Search Bar Styles */
+.search-container {
+    margin-top: 10rem; /* Space below header */
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    width: 80%; /* Make input wider */
+    padding: 1rem;
+    font-size: 1.2rem; /* Make the text slightly bigger */
+    font-weight: bold; /* Make the text bold */
+    border-radius: 5px;
+    border: 2px solid #FF7043; /* Border color to match theme */
+    background-color: #FFFFFF; /* White background for better contrast */
+    color: #333333; /* Dark text for readability */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #FF5722; /* Slightly darker shade for focus */
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7); /* Subtle glow effect */
+}
+
+.search-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: #FF7043; /* Vibrant button color */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #FF5722; /* Darken button on hover */
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Dark gray background */
+    color: #f5f5f5; /* Light text color */
+    line-height: 1.6;
+  }
+  
+  /* Header (Navigation Bar) */
+  header {
+    background-color: #2d2d2d; /* Slightly darker gray for the nav bar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    color: #ff3b47; /* Bright red for the title */
+  }
+  
+  header nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #ff3b47; /* Bright red on hover */
+  }
+  
+  /* Movie Details Page */
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  #movie-poster {
+    border: 3px solid #ff3b47; /* Red border for poster */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  #movie-poster:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    opacity: 0.9; /* Reduced opacity */
+  }
+  
+  #movie-title {
+    color: #ff3b47; /* Highlight movie title in red */
+  }
+  
+  #movie-description {
+    color: #d3d3d3; /* Softer light gray for description */
+  }
+  
+  /* Details Section */
+  .text-sm span strong {
+    color: #f5f5f5; /* Strong text remains white */
+  }
+  
+  #movie-genres, #movie-cast {
+    color: #ff9e80; /* Light coral for genres and cast */
+  }
+  
+  #movie-trailer-link {
+    background-color: #ff3b47;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #movie-trailer-link:hover {
+    background-color: #ff6f61; /* Slightly brighter red on hover */
+    transform: scale(1.05);
+  }
+  .w-full.md\:w-2\/3.p-4 {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 1rem;             /* Add consistent spacing between items */
+  }
+  
+  
+  /* Reviews Section */
+  #movie-reviews {
+    background-color: #2d2d2d; /* Subtle contrast for reviews */
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    color: #e0e0e0; /* Slightly softer text for reviews */
+  }
+  
+  #movie-reviews h3 {
+    color: #ff3b47; /* Red for reviews heading */
+  }
+  
+  #movie-reviews p {
+    font-style: italic; /* Style for user reviews */
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #2d2d2d; /* Matches nav bar background */
+    color: #bfbfbf; /* Softer gray text */
+  }
+  
+  footer p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #movie-poster {
+      height: auto;
+      max-height: 400px; /* Adjust poster height for smaller screens */
+      width: auto;       /* Maintain aspect ratio */
+      margin: 0 auto;    /* Center the poster */
+    }
+  
+    #movie-title {
+      font-size: 2.5rem;
+    }
+  
+    #movie-description {
+      font-size: 1rem;
+    }
+  
+    #movie-trailer-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      display: inline-block; /* Ensure it's treated as a button */
+  margin-top: 1rem; /* Add space above the button */
+    }
+  }
+  
