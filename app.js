@@ -168,3 +168,43 @@ function displayMovies(movies) {
     });
   }
   
+  // Genre buttons handling
+const genreBtns = document.querySelectorAll('.genre-btn');
+
+genreBtns.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const selectedGenre = event.target.textContent.trim();
+    selectedGenreElement.textContent = `Selected Genre: ${selectedGenre}`;
+    filterMoviesByGenre(selectedGenre);
+  });
+});
+
+// Filter Movies by Genre
+async function filterMoviesByGenre(genre) {
+  try {
+    const genreMap = {
+      'Action': 28,
+      'Comedy': 35,
+      'Drama': 18,
+      'Thriller': 53,
+      'Romance': 10749,
+      'Horror': 27
+    };
+
+    const genreId = genreMap[genre];
+    if (!genreId) return;
+
+    const response = await fetch(`${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`);
+    const data = await response.json();
+
+    if (data.results.length === 0) {
+      movieGrid.innerHTML = '<p>No movies found for this genre.</p>';
+      return;
+    }
+
+    displayMovies(data.results);
+  } catch (error) {
+    console.error('Error fetching movies by genre:', error);
+    movieGrid.innerHTML = '<p>Failed to load movies. Please try again later.</p>';
+  }
+}
