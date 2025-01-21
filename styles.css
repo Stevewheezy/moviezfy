@@ -5,6 +5,22 @@
     box-sizing: border-box;
 }
 
+/* Default styling for the site name */
+h1.text-3xl {
+    font-size: 1.8rem; /* Base size */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow if needed */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    h1.text-3xl {
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+      text-align: center; /* Center-align the text for better visibility */
+    }
+  }
+
 /* Body Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -150,6 +166,12 @@ header nav a:hover {
     }
 }
 
+@media (max-width: 480px) {
+    #movie-grid {
+      grid-template-columns: 1fr; /* 1 column for very small screens */
+    }
+  }
+
 /* Movie Cards */
 .movie-card {
     background-color: #333333;
@@ -196,6 +218,31 @@ header nav a:hover {
     font-weight: bold;
     color: #FF7043; /* Rating in orange for visibility */
 }
+
+/* Default styling for movie details modal */
+#movie-detail-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Add some padding for smaller screens */
+  }
+  
+  /* Modal content */
+  #movie-detail-modal > div {
+    max-width: 24rem; /* Limit the width */
+    width: 90%; /* Allow responsiveness */
+  }
+  
+  /* Adjust the layout for mobile screens */
+  @media (max-width: 768px) {
+    #movie-poster {
+      margin-bottom: 1rem; /* Add spacing below the poster */
+    }
+  
+    #movie-description {
+      text-align: justify; /* Improve text readability */
+    }
+  }
 
 /* Footer Styles */
 footer {
@@ -464,5 +511,20 @@ body {
       display: inline-block; /* Ensure it's treated as a button */
   margin-top: 1rem; /* Add space above the button */
     }
+  }
+
+  #load-more-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #853507;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #load-more-btn:hover {
+    background-color: #0056b3;
   }
   
