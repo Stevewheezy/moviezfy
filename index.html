@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
   
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white px-6">
   
   <!-- Navigation Bar -->
   <header class="w-full py-4 px-6 bg-gray-800 shadow-md fixed top-0 z-10">
@@ -28,40 +28,36 @@
     </div>
   </header>
   
-  <!-- Search Bar Section -->
-<div class="search-container">
-    <input type="text" id="search-bar" class="search-input" placeholder="Search for movies...">
-    <button id="search-btn" class="search-btn">Search</button>
+<!-- Search Section -->
+<section id="search-section" class="search-container mt-20 px-6">
+  <input type="text" id="search-bar" class="search-input" placeholder="Search for movies...">
+  <button id="search-btn" class="search-btn">Search</button>
+</section>
+
+<!-- Genre Section -->
+<section id="genre-section" class="genre-container">
+  <div class="flex justify-center flex-wrap space-x-4 mb-6">
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Action</button>
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Comedy</button>
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Drama</button>
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Thriller</button>
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Romance</button>
+    <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Horror</button>
   </div>
+</section>
 
-  <!-- Main content (search results) -->
-  <div class="flex mt-20">
-    <!-- Sidebar (Genres) -->
-    <div class="w-1/4 p-6 bg-gray-800 h-screen overflow-y-auto">
-      <h2 class="text-xl font-semibold text-red-600 mb-6">Filter by Genre</h2>
-      <div id="genre-list">
-        <div id="selected-genre" class="text-xl font-bold text-red-600 mb-4"></div> <!-- Placeholder for selected genre -->
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Action</button>
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Comedy</button>
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Drama</button>
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Thriller</button>
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Romance</button>
-        <button class="genre-btn bg-gray-700 hover:bg-red-600 w-full text-white py-2 mb-3 rounded-md">Horror</button>
-      </div>
-    </div>
-
-    <!-- Movie List -->
-    
-    <div class="w-3/4 p-6 overflow-y-auto">
-      <div id="movie-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Movie cards will be dynamically inserted here -->
-      </div>
-    </div>
+<!-- Movie Grid Section -->
+<section id="movie-grid-section" class="w-3/4 p-6 mx-auto">
+  <div id="movie-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Movie cards dynamically added -->
   </div>
+</section>
 
-  <div id="movie-grid"></div>
+<!-- Load More Button -->
+<section id="Show-more"> 
   <button id="load-more-btn" class="btn">Show More</button>
-
+</section>
+  
 
   <!-- Footer -->
   <footer class="bg-gray-800 py-6 mt-10">
