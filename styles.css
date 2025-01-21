@@ -107,7 +107,11 @@ header nav a:hover {
 /* Sidebar Styles */
 #genre-list {
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column; /* Stack genre buttons vertically */
+    gap: 1rem; /* Spacing between buttons */
 }
+
 
 #selected-genre {
     font-size: 1.25rem;
@@ -116,13 +120,14 @@ header nav a:hover {
     margin-bottom: 1rem;
   }
   
-
-.genre-btn {
+  .genre-btn {
     display: block;
-    width: 100%;
+    width: 90%; /* Set width to a fixed percentage */
+    max-width: 300px; /* Optionally, limit the maximum width */
+    margin: 0 auto; /* Center the buttons */
     padding: 1rem;
     background-color: #333333;
-    border: 2px solid #FF7043; /* Orange border for better contrast */
+    border: 2px solid #FF7043;
     border-radius: 8px;
     text-align: left;
     color: white;
@@ -130,6 +135,7 @@ header nav a:hover {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 
 .genre-btn:hover {
     background-color: #FF7043; /* Highlight color on hover */
@@ -143,34 +149,35 @@ header nav a:hover {
 /* Movie Grid Layout */
 #movie-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr); /* Default to 1 column */
     gap: 1.5rem;
-    padding-right: 20px; /* Add padding to the right side of the grid */
+    padding-right: 20px;
 }
 
 @media screen and (min-width: 640px) {
     #movie-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
     }
 }
 
 @media screen and (min-width: 768px) {
     #movie-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
     }
 }
 
 @media screen and (min-width: 1024px) {
     #movie-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for very large screens */
     }
 }
 
 @media (max-width: 480px) {
     #movie-grid {
-      grid-template-columns: 1fr; /* 1 column for very small screens */
+        grid-template-columns: 1fr; /* 1 column for very small screens */
     }
-  }
+}
+
 
 /* Movie Cards */
 .movie-card {
@@ -228,21 +235,26 @@ header nav a:hover {
   }
   
   /* Modal content */
-  #movie-detail-modal > div {
-    max-width: 24rem; /* Limit the width */
-    width: 90%; /* Allow responsiveness */
-  }
-  
-  /* Adjust the layout for mobile screens */
-  @media (max-width: 768px) {
-    #movie-poster {
-      margin-bottom: 1rem; /* Add spacing below the poster */
+  #movie-detail-modal .bg-gray-800 {
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    #movie-detail-modal .bg-gray-800 {
+        width: 90%;
     }
-  
-    #movie-description {
-      text-align: justify; /* Improve text readability */
+}
+
+@media (max-width: 480px) {
+    #movie-detail-modal .bg-gray-800 {
+        width: 95%;
     }
-  }
+}
+
 
 /* Footer Styles */
 footer {
