@@ -11,7 +11,7 @@ body {
   
 
   /* Navigation Bar */
-  /* General Styles for Header */
+/* General Styles for Header */
 header {
   background-color: #2d3748; /* Gray background */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -20,11 +20,18 @@ header {
   z-index: 10;
 }
 
+a h1 {
+  color: #e53e3e; /* Your desired red color */
+  text-decoration: none;
+}
+
 /* Navigation Links (Desktop) */
 nav a {
-  color: #d81414; /* White text */
-  font-size: 1rem; /* Standard font size */
+  color: #ffffff; /* White text */
+  font-size: 1.125rem; /* Slightly larger font size for bold effect */
+  font-weight: bold; /* Make the text bold */
   text-decoration: none; /* Remove underline */
+  margin-left: 1.5rem; /* Add space between links */
   transition: color 0.3s ease-in-out;
 }
 
@@ -91,6 +98,12 @@ nav a:hover {
 .mobile-menu.active {
   display: flex;
   opacity: 1;
+}
+
+/* Style the h1 tag within the anchor tag */
+a h1 {
+  color: #ffffff; 
+  text-decoration: none; 
 }
   
   /* Search Section */
