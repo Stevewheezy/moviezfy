@@ -8,7 +8,6 @@ body {
     line-height: 1.8;
   }
   
-  
 
   /* Navigation Bar */
 /* General Styles for Header */
@@ -20,10 +19,12 @@ header {
   z-index: 10;
 }
 
-a h1 {
-  color: #e53e3e; /* Your desired red color */
-  text-decoration: none;
+#site-title {
+  color: #e53e3e; 
+  text-decoration: none; 
+  font-weight: bold; 
 }
+
 
 /* Navigation Links (Desktop) */
 nav a {
