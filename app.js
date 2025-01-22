@@ -8,7 +8,7 @@ const searchBtn = document.getElementById('search-btn');
 const movieGrid = document.getElementById('movie-grid');
 const selectedGenreElement = document.getElementById('selected-genre');
 const movieDetailContainer = document.getElementById('movie-detail-container');
-const loadMoreBtn = document.getElementById('load-more-btn'); // Show more button
+const loadMoreBtn = document.getElementById('load-more-btn'); 
 
 // API Endpoints
 const BASE_URL = 'https://api.themoviedb.org/3';
