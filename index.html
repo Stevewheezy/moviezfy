@@ -17,16 +17,29 @@
   
 <body class="bg-gray-900 text-white px-6">
   
-  <!-- Navigation Bar -->
-  <header class="w-full py-4 px-6 bg-gray-800 shadow-md fixed top-0 z-10">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <h1 class="text-3xl font-bold text-red-600">Moviezfy</h1>
-      <nav>
-        <a href="index.html" class="text-white hover:text-red-600 mx-4">Home</a>
-        <a href="about.html" class="text-white hover:text-red-600 mx-4">About</a>
-      </nav>
-    </div>
-  </header>
+ <!-- Navigation Bar -->
+<header class="w-full py-4 px-6 bg-gray-800 shadow-md fixed top-0 z-10">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <h1 class="text-3xl font-bold text-red-600">Moviezfy</h1>
+    <button class="hamburger-menu block md:hidden text-white focus:outline-none">
+      <!-- Hamburger Icon -->
+      <span class="block w-6 h-0.5 bg-white mb-1"></span>
+      <span class="block w-6 h-0.5 bg-white mb-1"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+    </button>
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html" class="text-white hover:text-red-600">Home</a>
+      <a href="about.html" class="text-white hover:text-red-600">About</a>
+    </nav>
+  </div>
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu hidden bg-gray-800 text-white p-6">
+    <a href="index.html" class="block py-2 hover:text-red-600">Home</a>
+    <a href="about.html" class="block py-2 hover:text-red-600">About</a>
+  </div>
+</header>
+
+
   
 <!-- Search Section -->
 <section id="search-section" class="search-container mt-20 px-6">
@@ -37,6 +50,7 @@
 <!-- Genre Section -->
 <section id="genre-section" class="genre-container">
   <div class="flex justify-center flex-wrap space-x-4 mb-6">
+    <h2 class="text-gray-400">Filter by Genre</h2>
     <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Action</button>
     <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Comedy</button>
     <button class="genre-btn bg-gray-700 hover:bg-red-600 text-white py-2 px-4 rounded-md">Drama</button>

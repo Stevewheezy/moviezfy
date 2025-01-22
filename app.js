@@ -17,6 +17,14 @@ let currentPage = 1; // Tracks the current page being fetched
 let lastQueryType = 'popular'; // Tracks the last action ('popular', 'search', 'genre')
 let lastQueryValue = ''; // Tracks the search query or genre ID
 
+// Harmburger Menu
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  hamburgerMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
 // Fetch Random Movies on Page Load
 document.addEventListener('DOMContentLoaded', () => {
   const pathname = window.location.pathname;
@@ -104,6 +112,29 @@ async function filterMoviesByGenre(genre) {
     movieGrid.innerHTML = '<p>Failed to load movies. Please try again later.</p>';
   }
 }
+
+// Add Event Listeners to Genre Buttons
+function initializeGenreButtons() {
+  const genreButtons = document.querySelectorAll('.genre-btn');
+  
+  genreButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const genre = button.textContent.trim();
+
+      // Highlight the selected button
+      genreButtons.forEach(btn => btn.classList.remove('selected')); // Remove "selected" from all buttons
+      button.classList.add('selected'); // Add "selected" to the clicked button
+
+      filterMoviesByGenre(genre);
+    });
+  });
+}
+
+// Initialize the genre buttons when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  initializeGenreButtons();
+});
+
 
 // Fetch and Display Movie Details
 async function fetchMovieDetails(movieId) {
